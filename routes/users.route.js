@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const usersController = require('../controllers/users.controller')
+const authMdw = require('../middlewares/auth.middleware')
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -8,6 +9,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', usersController.register)
+router.get('/all', authMdw.verifyAdmin, usersController.getAll)
 
 
 module.exports = router;

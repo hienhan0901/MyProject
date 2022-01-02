@@ -9,6 +9,10 @@ module.exports = {
         return db('users').where('id', id)
     },
 
+    getByUsername(username) {
+        return db('users').where('username', username)
+    },
+
     add(user) {
         return db('users').insert(user)
     },

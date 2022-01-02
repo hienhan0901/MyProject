@@ -5,7 +5,7 @@ module.exports = {
     async register(user) {
         // Check if username is taken
         if (await usersModel.isUsernameTaken(user.username)) {
-            throw 'Username taken'
+            throw 'username taken'
         }
         // Create
         try {

@@ -1,4 +1,5 @@
 const usersService = require('../services/users.service')
+const usersModel = require('../models/users.model')
 
 const register = async function (req, res, next) {
     const user = req.body
@@ -20,6 +21,15 @@ const register = async function (req, res, next) {
     }
 }
 
+const getAll = async function (req, res) {
+    try {
+        const data = await usersModel.getAll()
+        res.json(data)
+    } catch {
+        res.json({ status: 'failed' })
+    }
+}
+
 module.exports = {
-    register
+    register, getAll
 }
