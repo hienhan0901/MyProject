@@ -4,12 +4,12 @@ const usersController = require('../controllers/users.controller')
 const authMdw = require('../middlewares/auth.middleware')
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
-});
+// router.get('/', function (req, res, next) {
+//   res.send('respond with a resource');
+// });
 
 router.post('/', usersController.register)
-router.get('/all', authMdw.verifyAdmin, usersController.getAll)
+router.get('/', authMdw.verifyAdmin, usersController.getAll)
 
 
 module.exports = router;

@@ -12,8 +12,8 @@ module.exports = {
         return db('products').where('id', id)
     },
 
-    add() {
-
+    add(id, data) {
+        return db('products').insert(data)
     },
 
     update() {
